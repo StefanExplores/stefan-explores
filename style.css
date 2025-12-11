@@ -2,79 +2,114 @@
 \cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
 {\colortbl;\red255\green255\blue255;}
 {\*\expandedcolortbl;;}
-\paperw11900\paperh16840\margl1440\margr1440\vieww12200\viewh16260\viewkind1
+\paperw11900\paperh16840\margl1440\margr1440\vieww12500\viewh16260\viewkind1
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
-\f0\fs24 \cf0 /* General */\
-body \{\
-  font-family: Arial, sans-serif;\
-  margin: 0;\
-  padding: 0;\
-  text-align: center;\
-  background-color: #E8F9F6;\
-  color: #0a3d3f;\
-  transition: background-color 0.3s, color 0.3s;\
+\f0\fs24 \cf0 body \{\
+    margin: 0;\
+    font-family: Arial, sans-serif;\
+    background-color: #fafafa;\
+    color: #222;\
 \}\
 \
-/* Dark Mode */\
-body.dark \{\
-  background-color: #0a3d3f;\
-  color: #E8F9F6;\
-\}\
-\
-/* Dark Mode Toggle Button */\
-#darkModeToggle \{\
-  position: fixed;\
-  top: 10px;\
-  right: 10px;\
-  padding: 8px 12px;\
-  border: none;\
-  border-radius: 8px;\
-  cursor: pointer;\
-  background-color: #2AB7A9;\
-  color: white;\
-  z-index: 1000;\
-\}\
-\
-/* Header */\
 header \{\
-  background-color: #2AB7A9;\
-  color: white;\
-  padding: 20px;\
+    text-align: center;\
+    padding: 40px 20px;\
+    background: #00b8b8;\
+    color: white;\
 \}\
 \
-/* Videos Section */\
-.videos iframe \{\
-  width: 300px;\
-  height: 170px;\
-  margin: 10px;\
+.tagline \{\
+    margin-top: -5px;\
+    font-size: 1.1rem;\
+    opacity: 0.9;\
 \}\
 \
-/* Gallery */\
-.gallery img \{\
-  width: 200px;\
-  margin: 5px;\
+.yt-link \{\
+    display: inline-block;\
+    margin-top: 15px;\
+    padding: 10px 18px;\
+    background: white;\
+    color: #00b8b8;\
+    font-weight: bold;\
+    border-radius: 6px;\
+    text-decoration: none;\
 \}\
 \
-/* Footer */\
+.videos \{\
+    padding: 40px 20px;\
+    max-width: 1000px;\
+    margin: auto;\
+\}\
+\
+.videos h2 \{\
+    text-align: center;\
+    margin-bottom: 20px;\
+\}\
+\
+.video-grid \{\
+    display: grid;\
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));\
+    gap: 20px;\
+\}\
+\
+iframe \{\
+    width: 100%;\
+    height: 180px;\
+    border: none;\
+    border-radius: 10px;\
+\}\
+\
+.contact \{\
+    padding: 40px 20px;\
+    max-width: 600px;\
+    margin: auto;\
+\}\
+\
+.contact h2 \{\
+    text-align: center;\
+    margin-bottom: 20px;\
+\}\
+\
+form \{\
+    display: flex;\
+    flex-direction: column;\
+    gap: 12px;\
+\}\
+\
+input, textarea \{\
+    padding: 12px;\
+    border: 1px solid #ccc;\
+    border-radius: 6px;\
+    font-size: 1rem;\
+\}\
+\
+button \{\
+    padding: 12px;\
+    border: none;\
+    background: #00b8b8;\
+    color: white;\
+    font-size: 1rem;\
+    border-radius: 6px;\
+    cursor: pointer;\
+    font-weight: bold;\
+\}\
+\
+button:hover \{\
+    background: #009999;\
+\}\
+\
+#form-status \{\
+    text-align: center;\
+    margin-top: 10px;\
+    font-weight: bold;\
+\}\
+\
 footer \{\
-  background-color: #2AB7A9;\
-  color: white;\
-  padding: 10px;\
-  margin-top: 20px;\
-\}\
-\
-/* Links */\
-a \{\
-  display: inline-block;\
-  margin-top: 10px;\
-  padding: 8px 12px;\
-  background-color: #23A393;\
-  color: white;\
-  text-decoration: none;\
-  border-radius: 8px;\
-\}\
-a:hover \{\
-  opacity: 0.8;\
+    text-align: center;\
+    padding: 20px;\
+    background: #efefef;\
+    font-size: 0.9rem;\
+    margin-top: 40px;\
 \}\
 }
