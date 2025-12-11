@@ -2,114 +2,105 @@
 \cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
 {\colortbl;\red255\green255\blue255;}
 {\*\expandedcolortbl;;}
-\paperw11900\paperh16840\margl1440\margr1440\vieww12500\viewh16260\viewkind1
+\paperw11900\paperh16840\margl1440\margr1440\vieww12800\viewh16260\viewkind1
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
-\f0\fs24 \cf0 body \{\
-    margin: 0;\
+\f0\fs24 \cf0 /* Global */\
+body \{\
     font-family: Arial, sans-serif;\
-    background-color: #fafafa;\
+    margin: 0;\
+    padding: 0;\
+    background: #f4f4f4;\
     color: #222;\
 \}\
 \
+/* Header */\
 header \{\
     text-align: center;\
     padding: 40px 20px;\
-    background: #00b8b8;\
-    color: white;\
+    background: white;\
+    border-bottom: 1px solid #ddd;\
+\}\
+\
+h1 \{\
+    margin-bottom: 10px;\
 \}\
 \
 .tagline \{\
-    margin-top: -5px;\
-    font-size: 1.1rem;\
-    opacity: 0.9;\
+    margin-top: 0;\
+    color: #555;\
 \}\
 \
 .yt-link \{\
     display: inline-block;\
     margin-top: 15px;\
-    padding: 10px 18px;\
-    background: white;\
-    color: #00b8b8;\
-    font-weight: bold;\
-    border-radius: 6px;\
     text-decoration: none;\
+    color: #0077cc;\
+    font-weight: bold;\
 \}\
 \
+/* Video Section */\
 .videos \{\
     padding: 40px 20px;\
     max-width: 1000px;\
     margin: auto;\
 \}\
 \
-.videos h2 \{\
-    text-align: center;\
-    margin-bottom: 20px;\
-\}\
-\
 .video-grid \{\
     display: grid;\
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));\
+    grid-template-columns: 1fr;\
     gap: 20px;\
 \}\
 \
 iframe \{\
     width: 100%;\
-    height: 180px;\
+    aspect-ratio: 16/9;\
     border: none;\
-    border-radius: 10px;\
 \}\
 \
+/* Contact */\
 .contact \{\
     padding: 40px 20px;\
     max-width: 600px;\
     margin: auto;\
 \}\
 \
-.contact h2 \{\
-    text-align: center;\
-    margin-bottom: 20px;\
-\}\
-\
-form \{\
-    display: flex;\
-    flex-direction: column;\
-    gap: 12px;\
-\}\
-\
 input, textarea \{\
+    width: 100%;\
     padding: 12px;\
+    margin: 8px 0;\
     border: 1px solid #ccc;\
     border-radius: 6px;\
-    font-size: 1rem;\
+    font-size: 16px;\
 \}\
 \
 button \{\
-    padding: 12px;\
+    padding: 12px 20px;\
     border: none;\
-    background: #00b8b8;\
+    background: #0077cc;\
     color: white;\
-    font-size: 1rem;\
     border-radius: 6px;\
     cursor: pointer;\
-    font-weight: bold;\
+    font-size: 16px;\
 \}\
 \
 button:hover \{\
-    background: #009999;\
+    background: #005fa3;\
 \}\
 \
-#form-status \{\
-    text-align: center;\
-    margin-top: 10px;\
-    font-weight: bold;\
-\}\
-\
+/* Footer */\
 footer \{\
     text-align: center;\
     padding: 20px;\
-    background: #efefef;\
-    font-size: 0.9rem;\
+    background: white;\
     margin-top: 40px;\
+    border-top: 1px solid #ddd;\
+\}\
+\
+/* Desktop Layout */\
+@media (min-width: 768px) \{\
+    .video-grid \{\
+        grid-template-columns: repeat(3, 1fr);\
+    \}\
 \}\
 }
