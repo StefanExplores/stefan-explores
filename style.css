@@ -1,0 +1,80 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2822
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww12200\viewh16260\viewkind1
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 /* General */\
+body \{\
+  font-family: Arial, sans-serif;\
+  margin: 0;\
+  padding: 0;\
+  text-align: center;\
+  background-color: #E8F9F6;\
+  color: #0a3d3f;\
+  transition: background-color 0.3s, color 0.3s;\
+\}\
+\
+/* Dark Mode */\
+body.dark \{\
+  background-color: #0a3d3f;\
+  color: #E8F9F6;\
+\}\
+\
+/* Dark Mode Toggle Button */\
+#darkModeToggle \{\
+  position: fixed;\
+  top: 10px;\
+  right: 10px;\
+  padding: 8px 12px;\
+  border: none;\
+  border-radius: 8px;\
+  cursor: pointer;\
+  background-color: #2AB7A9;\
+  color: white;\
+  z-index: 1000;\
+\}\
+\
+/* Header */\
+header \{\
+  background-color: #2AB7A9;\
+  color: white;\
+  padding: 20px;\
+\}\
+\
+/* Videos Section */\
+.videos iframe \{\
+  width: 300px;\
+  height: 170px;\
+  margin: 10px;\
+\}\
+\
+/* Gallery */\
+.gallery img \{\
+  width: 200px;\
+  margin: 5px;\
+\}\
+\
+/* Footer */\
+footer \{\
+  background-color: #2AB7A9;\
+  color: white;\
+  padding: 10px;\
+  margin-top: 20px;\
+\}\
+\
+/* Links */\
+a \{\
+  display: inline-block;\
+  margin-top: 10px;\
+  padding: 8px 12px;\
+  background-color: #23A393;\
+  color: white;\
+  text-decoration: none;\
+  border-radius: 8px;\
+\}\
+a:hover \{\
+  opacity: 0.8;\
+\}\
+}
