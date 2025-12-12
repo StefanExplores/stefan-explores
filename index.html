@@ -13,7 +13,7 @@
         <img src="stefanexplores.png" alt="Stefan Explores Logo" class="logo">
 
         <h1>Traveler & Creator</h1>
-        <p class="tagline"> Contact me below</p>
+        <p class="tagline">Contact me below</p>
 
         <a class="yt-button" href="https://www.youtube.com/@StefanExplores" target="_blank">
             See more on YouTube
@@ -25,7 +25,7 @@
         <div class="video-wrapper">
             <iframe 
                 src="https://www.youtube-nocookie.com/embed/TcxrWbd7EFU"
-                title="Angkor Wat Cambodia Travel Video" 
+                title="Angkor Wat Cambodia Travel Video"
                 allowfullscreen>
             </iframe>
         </div>
@@ -36,26 +36,27 @@
         <h2>Contact Me</h2>
 
         <form class="contact-form" action="https://formspree.io/f/movgywlq" method="POST">
-            
-            <label>
-                Your Name
-                <input type="text" name="name" required>
-            </label>
 
-            <label>
-                Your Email
-                <input type="email" name="email" required>
-            </label>
-
-            <label>
-                Your Message
-                <textarea name="message" required></textarea>
-            </label>
-
-            <!-- reCAPTCHA container for later -->
-            <div class="captcha-container">
-                <!-- You will insert reCAPTCHA key later -->
+            <div class="form-group">
+                <label for="name">Your Name</label>
+                <input id="name" type="text" name="name" required />
             </div>
+
+            <div class="form-group">
+                <label for="email">Your Email</label>
+                <input id="email" type="email" name="email" required />
+            </div>
+
+            <div class="form-group">
+                <label for="message">Your Message</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+            </div>
+
+            <!-- Honeypot (spam protection) -->
+            <input type="text" name="_gotcha" style="display:none">
+
+            <!-- Future reCAPTCHA space -->
+            <div class="captcha-container"></div>
 
             <button class="submit-btn" type="submit">Send Message</button>
 
@@ -66,6 +67,7 @@
     <!-- Footer -->
     <footer>
         © 2025 Stefan Explores
+    </footer>
 
     <script src="script.js"></script>
 </body>

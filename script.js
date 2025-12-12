@@ -1,91 +1,62 @@
 // ----------------------------------------------------
-// CONTACT FORM SCRIPT — FORMSPREE + VALIDATION + SPAM PROTECTION
+// CONTACT FORM HANDLING (Formspree)
 // ----------------------------------------------------
 
 document.addEventListener("DOMContentLoaded", () => {
     const form = document.querySelector(".contact-form");
     const successMsg = document.getElementById("successMessage");
 
-    // Create honeypot field (hidden spam trap)
+    // Hidden anti-spam honeypot field
+    // (Bots fill it, real users don't)
     const honeypot = document.createElement("input");
     honeypot.type = "text";
-    honeypot.name = "company";         // bots usually fill this
-    honeypot.style.display = "none";   // human users never see it
+    honeypot.name = "_gotcha";
+    honeypot.style.display = "none";
     form.appendChild(honeypot);
-
-    // Email validation regex
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
     form.addEventListener("submit", async function (e) {
         e.preventDefault();
-        
-        successMsg.textContent = "";  // reset
 
-        const formData = new FormData(form);
+        successMsg.textContent = ""; // clear old messages
+
+        const name = form.querySelector("input[name='name']").value.trim();
+        const email = form.querySelector("input[name='email']").value.trim();
+        const message = form.querySelector("textarea[name='message']").value.trim();
 
         // ----------------------------------------------------
-        // VALIDATION
+        // BASIC VALIDATION
         // ----------------------------------------------------
-        const name = formData.get("name").trim();
-        const email = formData.get("email").trim();
-        const message = formData.get("message").trim();
-        const botField = formData.get("company"); // honeypot
-
-        // Honeypot spam block
-        if (botField) {
-            successMsg.textContent = "Spam detected. Message blocked.";
+        if (!name || !email || !message) {
+            successMsg.textContent = "Please fill in all fields.";
             return;
         }
 
-        if (name.length < 2) {
-            successMsg.textContent = "Please enter your name.";
-            return;
-        }
-
-        if (!emailRegex.test(email)) {
-            successMsg.textContent = "Please enter a valid email address.";
-            return;
-        }
-
-        if (message.length < 5) {
-            successMsg.textContent = "Your message is too short.";
+        // Simple email check
+        if (!email.includes("@") || !email.includes(".")) {
+            successMsg.textContent = "Please enter a valid email.";
             return;
         }
 
         // ----------------------------------------------------
-        // LOADING STATE
+        // SUBMIT TO FORMSPREE
         // ----------------------------------------------------
-        const submitBtn = form.querySelector(".submit-btn");
-        const originalBtnText = submitBtn.textContent;
-        submitBtn.textContent = "Sending…";
-        submitBtn.disabled = true;
+        const data = new FormData(form);
 
-        // ----------------------------------------------------
-        // SEND TO FORMSPREE
-        // ----------------------------------------------------
         try {
-            const res = await fetch(form.action, {
+            const response = await fetch(form.action, {
                 method: "POST",
-                body: formData,
+                body: data,
                 headers: { Accept: "application/json" }
             });
 
-            if (res.ok) {
-                successMsg.textContent =
-                    "🎉 Your message has been sent! I’ll reply as soon as I can.";
+            if (response.ok) {
+                successMsg.textContent = "🎉 Your message has been sent! I'll reply as soon as I can.";
                 form.reset();
             } else {
-                successMsg.textContent =
-                    "Something went wrong. Please try again.";
+                successMsg.textContent = "Something went wrong — please try again.";
             }
-        } catch (err) {
+        } catch (error) {
             successMsg.textContent = "Network error. Please try again.";
         }
-
-        // ----------------------------------------------------
-        // RESET BUTTON
-        // ----------------------------------------------------
-        submitBtn.textContent = originalBtnText;
-        submitBtn.disabled = false;
     });
 });
