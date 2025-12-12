@@ -6,18 +6,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const form = document.querySelector(".contact-form");
     const successMsg = document.getElementById("successMessage");
 
-    // Hidden anti-spam honeypot field
-    // (Bots fill it, real users don't)
-    const honeypot = document.createElement("input");
-    honeypot.type = "text";
-    honeypot.name = "_gotcha";
-    honeypot.style.display = "none";
-    form.appendChild(honeypot);
-
     form.addEventListener("submit", async function (e) {
         e.preventDefault();
 
-        successMsg.textContent = ""; // clear old messages
+        successMsg.textContent = ""; // clear previous messages
 
         const name = form.querySelector("input[name='name']").value.trim();
         const email = form.querySelector("input[name='email']").value.trim();
@@ -31,7 +23,6 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         }
 
-        // Simple email check
         if (!email.includes("@") || !email.includes(".")) {
             successMsg.textContent = "Please enter a valid email.";
             return;
