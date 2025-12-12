@@ -13,40 +13,39 @@
         <img src="stefanexplores.png" alt="Stefan Explores Logo" class="logo">
         <h1>Stefan Explores</h1>
         <p class="tagline">Travel • Adventure • Stories from the World</p>
-        <a class="yt-button" href="https://www.youtube.com/@StefanExplores" target="_blank">Visit My YouTube Channel</a>
+        <a class="yt-button" href="https://www.youtube.com/@StefanExplores" target="_blank">
+            Visit My YouTube Channel
+        </a>
     </header>
 
-    <!-- Latest Videos Section -->
-    <section class="videos-section">
-        <h2>Latest Videos</h2>
-        <div class="videos">
-
-            <iframe
-                src="https://www.youtube.com/embed/2ushrItP0kA?rel=0&modestbranding=1"
-                title="Latest Video 1"
-                allowfullscreen></iframe>
-
+    <!-- One Video Section -->
+    <section class="single-video-section">
+        <div class="video-wrapper">
             <iframe
                 src="https://www.youtube.com/embed/vNWu6f8ZSkQ?rel=0&modestbranding=1"
-                title="Latest Video 2"
-                allowfullscreen></iframe>
-
-            <iframe
-                src="https://www.youtube.com/embed/JYHskC16rQc?rel=0&modestbranding=1"
-                title="Latest Video 3"
-                allowfullscreen></iframe>
-
+                title="Angkor Wat Cambodia Video"
+                allowfullscreen>
+            </iframe>
         </div>
     </section>
 
     <!-- Contact Form -->
     <section class="contact-section">
         <h2>Contact Me</h2>
-        <form class="contact-form">
-            <input type="text" placeholder="Your Name" required>
-            <input type="email" placeholder="Your Email" required>
-            <textarea placeholder="Your Message" required></textarea>
+
+        <form class="contact-form" action="https://formspree.io/f/mwkajkkn" method="POST">
+
+            <!-- Honeypot (spam protection) -->
+            <input type="text" name="_gotcha" style="display:none">
+
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="_replyto" placeholder="Your Email" required>
+            <textarea name="message" placeholder="Your Message" required></textarea>
+
             <button type="submit">Send Message</button>
+
+            <p id="successMessage" class="success-message"></p>
+
         </form>
     </section>
 

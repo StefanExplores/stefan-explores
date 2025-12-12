@@ -1,4 +1,4 @@
-/* Global Reset */
+/* Reset */
 * {
     margin: 0;
     padding: 0;
@@ -30,14 +30,14 @@ h1 {
 }
 
 .tagline {
-    font-size: 1.1rem;
-    margin-top: 6px;
+    font-size: 1.15rem;
+    margin-top: 8px;
     opacity: 0.9;
 }
 
 .yt-button {
     display: inline-block;
-    margin-top: 18px;
+    margin-top: 20px;
     padding: 12px 22px;
     background: white;
     color: #0a4cb5;
@@ -51,29 +51,21 @@ h1 {
     background: #e3f7ff;
 }
 
-/* Videos */
-.videos-section {
-    margin-top: 60px;
+/* Video Section */
+.single-video-section {
+    margin-top: 50px;
     padding: 0 20px;
 }
 
-.videos-section h2 {
-    margin-bottom: 20px;
-    font-size: 2rem;
-}
-
-.videos {
-    display: grid;
-    gap: 20px;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    justify-items: center;
+.video-wrapper {
+    max-width: 680px;
+    margin: auto;
 }
 
 iframe {
     width: 100%;
-    max-width: 560px;
-    height: 315px;
-    border-radius: 12px;
+    height: 380px;
+    border-radius: 14px;
     border: none;
     box-shadow: 0 4px 14px rgba(0,0,0,0.3);
 }
@@ -99,7 +91,7 @@ iframe {
 
 .contact-form input,
 .contact-form textarea {
-    padding: 12px;
+    padding: 14px;
     border-radius: 8px;
     border: none;
     font-size: 1rem;
@@ -125,7 +117,15 @@ iframe {
     background: #e3f7ff;
 }
 
-/* Mobile Tweaks */
+/* Success Message */
+.success-message {
+    color: #d4faff;
+    font-size: 1rem;
+    margin-top: 10px;
+    min-height: 20px;
+}
+
+/* Mobile adjustments */
 @media (max-width: 480px) {
     h1 { font-size: 1.9rem; }
     iframe { height: 220px; }
