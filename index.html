@@ -30,24 +30,43 @@
     </section>
 
     <!-- Contact Form -->
-    <section class="contact-section">
-        <h2>Contact Me</h2>
+<section id="contact" class="contact-section">
+    <h2 class="contact-title">Contact Me</h2>
 
-        <form class="contact-form" action="https://formspree.io/f/mwkajkkn" method="POST">
+    <form action="https://formspree.io/f/YOUR_FORMSPREE_ENDPOINT" 
+          method="POST" 
+          class="contact-form" 
+          id="contact-form">
 
-            <!-- Honeypot (spam protection) -->
-            <input type="text" name="_gotcha" style="display:none">
+        <input type="hidden" name="_subject" value="New message from your website">
 
-            <input type="text" name="name" placeholder="Your Name" required>
-            <input type="email" name="_replyto" placeholder="Your Email" required>
-            <textarea name="message" placeholder="Your Message" required></textarea>
+        <label>
+            <span>Name</span>
+            <input type="text" name="name" id="name" required>
+        </label>
 
-            <button type="submit">Send Message</button>
+        <label>
+            <span>Email</span>
+            <input type="email" name="email" id="email" required>
+        </label>
 
-            <p id="successMessage" class="success-message"></p>
+        <label>
+            <span>Message</span>
+            <textarea name="message" id="message" rows="5" required></textarea>
+        </label>
 
-        </form>
-    </section>
+        <div class="captcha-container">
+            <div class="g-recaptcha" data-sitekey="YOUR_SITE_KEY_HERE"></div>
+        </div>
+
+        <button type="submit" class="submit-btn">Send Message</button>
+
+        <p id="successMessage" class="success-message"></p>
+    </form>
+</section>
+
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
 
     <script src="./script.js"></script>
 </body>
