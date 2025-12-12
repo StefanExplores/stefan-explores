@@ -1,73 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Stefan Explores</title>
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
 
-    <!-- Header Section -->
-    <header class="header">
+    <!-- Navigation -->
+    <nav>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#videos">Videos</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Header -->
+    <header class="header" id="about">
         <img src="stefanexplores.png" alt="Stefan Explores Logo" class="logo">
+
         <h1>Stefan Explores</h1>
-        <p class="tagline">Travel • Adventure • Stories from the World</p>
+        <p class="tagline">Adventure Traveler & YouTube Creator</p>
+
         <a class="yt-button" href="https://www.youtube.com/@StefanExplores" target="_blank">
-            Visit My YouTube Channel
+            Subscribe on YouTube
         </a>
     </header>
 
-    <!-- One Video Section -->
-    <section class="single-video-section">
+    <!-- Featured Video -->
+    <section class="single-video-section" id="videos">
         <div class="video-wrapper">
-            <iframe
-                src="https://www.youtube.com/embed/vNWu6f8ZSkQ?rel=0&modestbranding=1"
-                title="Angkor Wat Cambodia Video"
+            <iframe 
+                src="https://www.youtube.com/watch?v=TcxrWbd7EFU" 
+                title="Angkor Wat Cambodia Travel Video" 
                 allowfullscreen>
             </iframe>
         </div>
     </section>
 
-    <!-- Contact Form -->
-<section id="contact" class="contact-section">
-    <h2 class="contact-title">Contact Me</h2>
+    <!-- Contact Section -->
+    <section class="contact-section" id="contact">
+        <h2>Contact Me</h2>
 
-    <form action="https://formspree.io/f/YOUR_FORMSPREE_ENDPOINT" 
-          method="POST" 
-          class="contact-form" 
-          id="contact-form">
+        <form class="contact-form" action="https://formspree.io/f/movawldr" method="POST">
+            
+            <label>
+                Your Name
+                <input type="text" name="name" required>
+            </label>
 
-        <input type="hidden" name="_subject" value="New message from your website">
+            <label>
+                Your Email
+                <input type="email" name="email" required>
+            </label>
 
-        <label>
-            <span>Name</span>
-            <input type="text" name="name" id="name" required>
-        </label>
+            <label>
+                Your Message
+                <textarea name="message" required></textarea>
+            </label>
 
-        <label>
-            <span>Email</span>
-            <input type="email" name="email" id="email" required>
-        </label>
+            <!-- reCAPTCHA container for later -->
+            <div class="captcha-container">
+                <!-- You will insert reCAPTCHA key later -->
+            </div>
 
-        <label>
-            <span>Message</span>
-            <textarea name="message" id="message" rows="5" required></textarea>
-        </label>
+            <button class="submit-btn" type="submit">Send Message</button>
 
-        <div class="captcha-container">
-            <div class="g-recaptcha" data-sitekey="YOUR_SITE_KEY_HERE"></div>
-        </div>
+            <p id="successMessage" class="success-message"></p>
+        </form>
+    </section>
 
-        <button type="submit" class="submit-btn">Send Message</button>
+    <!-- Footer -->
+    <footer>
+        © 2025 Stefan Explores — Travel · Adventure · Storytelling
+    </footer>
 
-        <p id="successMessage" class="success-message"></p>
-    </form>
-</section>
-
-<script src="https://www.google.com/recaptcha/api.js" async defer></script>
-
-
-    <script src="./script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>

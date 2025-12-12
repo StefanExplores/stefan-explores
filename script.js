@@ -1,62 +1,91 @@
-document.getElementById("contact-form").addEventListener("submit", async function (e) {
-    e.preventDefault();
+// ----------------------------------------------------
+// CONTACT FORM SCRIPT — FORMSPREE + VALIDATION + SPAM PROTECTION
+// ----------------------------------------------------
 
-    const form = e.target;
+document.addEventListener("DOMContentLoaded", () => {
+    const form = document.querySelector(".contact-form");
     const successMsg = document.getElementById("successMessage");
 
-    // Clear old message
-    successMsg.textContent = "";
-    successMsg.style.color = "";
+    // Create honeypot field (hidden spam trap)
+    const honeypot = document.createElement("input");
+    honeypot.type = "text";
+    honeypot.name = "company";         // bots usually fill this
+    honeypot.style.display = "none";   // human users never see it
+    form.appendChild(honeypot);
 
-    // Validate fields
-    const name = document.getElementById("name").value.trim();
-    const email = document.getElementById("email").value.trim();
-    const message = document.getElementById("message").value.trim();
-
-    if (!name || !email || !message) {
-        successMsg.textContent = "Please fill out all fields.";
-        successMsg.style.color = "red";
-        return;
-    }
-
-    // Validate email format
+    // Email validation regex
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email)) {
-        successMsg.textContent = "Please enter a valid email address.";
-        successMsg.style.color = "red";
-        return;
-    }
 
-    // Validate Google reCAPTCHA
-    const captchaResponse = grecaptcha.getResponse();
-    if (!captchaResponse) {
-        successMsg.textContent = "Please confirm you're not a robot.";
-        successMsg.style.color = "red";
-        return;
-    }
+    form.addEventListener("submit", async function (e) {
+        e.preventDefault();
+        
+        successMsg.textContent = "";  // reset
 
-    // Prepare form data
-    const data = new FormData(form);
+        const formData = new FormData(form);
 
-    // Send POST request to Formspree
-    try {
-        const res = await fetch(form.action, {
-            method: "POST",
-            body: data,
-            headers: { Accept: "application/json" }
-        });
+        // ----------------------------------------------------
+        // VALIDATION
+        // ----------------------------------------------------
+        const name = formData.get("name").trim();
+        const email = formData.get("email").trim();
+        const message = formData.get("message").trim();
+        const botField = formData.get("company"); // honeypot
 
-        if (res.ok) {
-            successMsg.textContent = "🎉 Your message has been sent! I'll reply as soon as I can.";
-            successMsg.style.color = "green";
-            form.reset();
-            grecaptcha.reset();
-        } else {
-            successMsg.textContent = "Something went wrong. Please try again.";
-            successMsg.style.color = "red";
+        // Honeypot spam block
+        if (botField) {
+            successMsg.textContent = "Spam detected. Message blocked.";
+            return;
         }
-    } catch (error) {
-        successMsg.textContent = "Network error. Please try again later.";
-        successMsg.style.color = "red";
-    }
+
+        if (name.length < 2) {
+            successMsg.textContent = "Please enter your name.";
+            return;
+        }
+
+        if (!emailRegex.test(email)) {
+            successMsg.textContent = "Please enter a valid email address.";
+            return;
+        }
+
+        if (message.length < 5) {
+            successMsg.textContent = "Your message is too short.";
+            return;
+        }
+
+        // ----------------------------------------------------
+        // LOADING STATE
+        // ----------------------------------------------------
+        const submitBtn = form.querySelector(".submit-btn");
+        const originalBtnText = submitBtn.textContent;
+        submitBtn.textContent = "Sending…";
+        submitBtn.disabled = true;
+
+        // ----------------------------------------------------
+        // SEND TO FORMSPREE
+        // ----------------------------------------------------
+        try {
+            const res = await fetch(form.action, {
+                method: "POST",
+                body: formData,
+                headers: { Accept: "application/json" }
+            });
+
+            if (res.ok) {
+                successMsg.textContent =
+                    "🎉 Your message has been sent! I’ll reply as soon as I can.";
+                form.reset();
+            } else {
+                successMsg.textContent =
+                    "Something went wrong. Please try again.";
+            }
+        } catch (err) {
+            successMsg.textContent = "Network error. Please try again.";
+        }
+
+        // ----------------------------------------------------
+        // RESET BUTTON
+        // ----------------------------------------------------
+        submitBtn.textContent = originalBtnText;
+        submitBtn.disabled = false;
+    });
 });
