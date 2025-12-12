@@ -19,7 +19,7 @@ body {
 }
 
 .logo {
-    width: 160px;
+    width: 200px;
     height: auto;
     margin-bottom: 15px;
 }
@@ -53,7 +53,7 @@ h1 {
 
 /* Video Section */
 .single-video-section {
-    margin-top: 50px;
+    margin-top: 30px;
     padding: 0 20px;
 }
 
@@ -138,13 +138,32 @@ iframe {
     margin: 0 auto;
 }
 
+/* Desktop improvements */
+@media (min-width: 900px) {
+    .contact-section {
+        padding: 4rem 0;
+        display: flex;
+        justify-content: center;
+    }
+
+    .contact-form {
+        max-width: 550px;
+        padding: 2.5rem 3rem;
+    }
+
+    /* Light gradient background behind form */
+    .contact-section {
+        background: linear-gradient(135deg, #33c6dd, #0059c9);
+        width: 100%;
+    }
+}
+
 .contact-title {
     text-align: center;
     margin-bottom: 1.5rem;
     font-size: 1.8rem;
-    background: linear-gradient(135deg, #33c6dd, #0059c9);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: #ffffff; /* pure white */
+    text-shadow: 0 2px 6px rgba(0,0,0,0.25);
 }
 
 /* Contact Form */
