@@ -28,38 +28,6 @@ Pure White: #FFFFFF
 */
 
 /* ----------------------------------------------------
-   NAVIGATION BAR
----------------------------------------------------- */
-nav {
-    width: 100%;
-    background: rgba(0,0,0,0.25);
-    backdrop-filter: blur(8px);
-    padding: 16px 0;
-    position: sticky;
-    top: 0;
-    z-index: 20;
-}
-
-nav ul {
-    list-style: none;
-    display: flex;
-    gap: 32px;
-    justify-content: center;
-}
-
-nav a {
-    color: #3CDDFE;
-    font-weight: 600;
-    text-decoration: none;
-    font-size: 1.05rem;
-    transition: color 0.2s;
-}
-
-nav a:hover {
-    color: white;
-}
-
-/* ----------------------------------------------------
    HEADER
 ---------------------------------------------------- */
 .header {
@@ -142,11 +110,6 @@ iframe {
 /* ----------------------------------------------------
    CONTACT SECTION (LOGO-MATCHED COLORS)
 ---------------------------------------------------- */
-.contact-section {
-    margin-top: 80px;
-    padding: 60px 20px;
-    background: linear-gradient(135deg, #3CDDFE, #0051B4);
-}
 
 .contact-section h2 {
     font-size: 2.4rem;
