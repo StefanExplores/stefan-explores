@@ -1,43 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Stefan Explores</title>
-    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-    <header>
+
+    <!-- Header Section -->
+    <header class="header">
+        <img src="stefanexplores.png" alt="Stefan Explores Logo" class="logo">
         <h1>Stefan Explores</h1>
-        <p class="tagline">Travel, adventure, and stories from around the world.</p>
-        <a class="yt-link" href="https://www.youtube.com/@stefanexplores" target="_blank">
-            Visit My YouTube Channel →
-        </a>
+        <p class="tagline">Travel • Adventure • Stories from the World</p>
+        <a class="yt-button" href="https://www.youtube.com/@StefanExplores" target="_blank">Visit My YouTube Channel</a>
     </header>
 
-    <section class="videos">
+    <!-- Latest Videos Section -->
+    <section class="videos-section">
         <h2>Latest Videos</h2>
-        <div class="video-grid">
-            <iframe src="https://www.youtube.com/embed/_vG3FOSZrg0" allowfullscreen></iframe>
-            <iframe src="https://www.youtube.com/embed/bDNRrSCCSkQ" allowfullscreen></iframe>
-            <iframe src="https://www.youtube.com/embed/UExfUmKzaEo" allowfullscreen></iframe>
+        <div class="videos">
+
+            <iframe
+                src="https://www.youtube.com/embed/2ushrItP0kA?rel=0&modestbranding=1"
+                title="Latest Video 1"
+                allowfullscreen></iframe>
+
+            <iframe
+                src="https://www.youtube.com/embed/vNWu6f8ZSkQ?rel=0&modestbranding=1"
+                title="Latest Video 2"
+                allowfullscreen></iframe>
+
+            <iframe
+                src="https://www.youtube.com/embed/JYHskC16rQc?rel=0&modestbranding=1"
+                title="Latest Video 3"
+                allowfullscreen></iframe>
+
         </div>
     </section>
 
-    <section class="contact">
+    <!-- Contact Form -->
+    <section class="contact-section">
         <h2>Contact Me</h2>
-        <form id="contact-form">
-            <input type="text" id="name" placeholder="Your Name" required />
-            <input type="email" id="email" placeholder="Your Email" required />
-            <textarea id="message" placeholder="Your Message" required></textarea>
-            <button type="submit">Send</button>
+        <form class="contact-form">
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Your Email" required>
+            <textarea placeholder="Your Message" required></textarea>
+            <button type="submit">Send Message</button>
         </form>
-        <p id="form-status"></p>
     </section>
-
-    <footer>
-        <p>© 2025 Stefan Explores — All Rights Reserved.</p>
-    </footer>
 
     <script src="./script.js"></script>
 </body>
